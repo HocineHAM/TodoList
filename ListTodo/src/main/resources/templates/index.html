@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<style type="text/css">
+body, html {
+	width: 250px;
+}
+
+.button {
+	width: 200px !important;
+}
+
+h2
+{
+text-align: center;
+margin-top: 0px;
+}
+
+</style>
+</head>
+<body>
+
+
+<div class="mx-auto" style="width: 500px;">
+	<div th:switch="${listetodos}">
+		<div th:case="*">
+			
+				<h2>Liste Todos</h2>
+			
+ 
+			<table class="table table-striped table-dark" >
+				<thead>
+					<tr>
+						<th scope="col">intitule</th>
+						<th scope="col">dateFin</th>
+						<th scope="col">indicFin</th>
+
+
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="todo : ${listetodos}">
+						<td th:text="${todo.intitule}"></td>
+						<td th:text="${todo.indicFin}"></td>
+						<td th:text="${#dates.format(todo.dateFin,'dd-MM-yyyy')}"></td>
+						<td><a th:href="@{/edit/{id}(id=${todo.id})}">Edit</a></td>
+						<td><a th:href="@{/delete/{id}(id=${todo.id})}">Delete</a></td>
+
+
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		</div>
+
+		<p>
+		<p>
+			
+			 <a class="btn btn-primary" data-toggle="collapse" href="/signup" role="button" aria-expanded="false">
+    Add a new user
+  </a>
+		</p>
+		<p>
+	</div>
+</body>
+</html>

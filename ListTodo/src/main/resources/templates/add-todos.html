@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+</head>
+<body>
+	<form th:action="@{/addtodo}" th:object="${todo}"
+		method="post">
+
+		<div class="row">
+			<div class="col">
+				<label for="intitule">Intitule</label> 
+				<input type="text" th:field="*{intitule}" class="form-control" placeholder="Intitule">
+			</div>
+			<div class="col">
+				<label for="dateFin">Date de fin</label> 
+				<input type="date" th:field="*{dateFin}" class="form-control">
+			</div>
+			<div class="col">
+				<label for="indicFin">Indicateur de fin</label>
+			    <input type="text" th:field="*{indicFin}" class="form-control" placeholder="Indicateur de fin">
+			</div>
+		</div>
+		<br/>
+		<input class="btn btn-primary" type="submit" value="Add Todos">
+	</form>
+</body>
+</html>

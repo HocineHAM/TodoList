@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+	<form th:action="@{/update/{id}(id=${id})}" th:object="${todo}" method="post">
+	
+	<div class="row">
+    <div class="col">
+    <label for="intitule">Intitule</label>
+		<input type="text" th:field="*{intitule}" class="form-control" placeholder="Intitule">
+    </div>
+   <div class="col">
+    <label for="dateFin">Date de fin</label>
+		<input type="date" th:field="*{dateFin}" class="form-control">
+    </div>
+    <div class="col">
+    <label for="indicFin">Indicteur de fin</label>
+		<input type="text" th:field="*{indicFin}" class="form-control" placeholder="Indicateur de fin">
+    </div>
+    </div>
+    <br>
+    <input class="btn btn-primary" type="submit" value="Update todo">
+    </form>   
+</body>
+</html>
